@@ -1,5 +1,4 @@
 
-
 public class MaxPQ<Key extends Comparable<Key>>{
 
 	private Key[] pq;
