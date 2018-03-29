@@ -9,7 +9,7 @@ public class IndexMinPQ<Item extends Comparable<Item>>{
 	public IndexMinPQ(int maxN){
 		pq = new int[maxN + 1];
 		qp = new int[maxN + 1];
-		keys = (Item[]) new Object[maxN + 1];
+		keys = (Item[]) new Comparable[maxN + 1];  // new Comparable
 		for(int i = 0; i < maxN + 1; i ++)
 			qp[i] = -1;
 	}
@@ -17,13 +17,14 @@ public class IndexMinPQ<Item extends Comparable<Item>>{
 	public void insert(int k, Item item){
 		keys[k] = item;
 		pq[++N] = k;
+		qp[k] = N;
 		swim(N);
 	}
 
 	public void change(int k, Item item){
 		keys[k] = item;
-		swim(k);
-		sink(k);
+		swim(qp[k]);
+		sink(qp[k]);
 	}
 
 	public boolean contains(int k){
@@ -31,11 +32,12 @@ public class IndexMinPQ<Item extends Comparable<Item>>{
 	}
 
 	public void delete(int k){
-		keys[k] = null;
-		pq[qp[k]] = pq[N--];
-		sink(qp[k]);
-		swim(qp[k]);
+		int index = qp[k];
+		exch(index, N--);
+		sink(index);
+		swim(index);
 		qp[k] = -1;
+		keys[k] = null;
 	}
 
 	public Item min(){
@@ -48,10 +50,11 @@ public class IndexMinPQ<Item extends Comparable<Item>>{
 
 	public int delMin(){
 		int indexOfMin = pq[1];
+		exch(1, N--);
+		sink(1);
 		keys[indexOfMin] = null;
 		qp[indexOfMin] = -1;
-		pq[1] = pq[N--];
-		sink(1);
+		pq[N+1] = -1;
 		return indexOfMin;
 	}
 
