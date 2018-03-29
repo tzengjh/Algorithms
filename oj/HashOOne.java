@@ -1,3 +1,9 @@
+/**
+* Implement a hashmap that has the following methods with O(1) complexity.
+* 1. set(key, value)
+* 2. get(key, defaultValue)
+* 3. setAll(value)
+*/
 import java.util.HashMap;
 
 public class HashOOne{

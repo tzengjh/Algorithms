@@ -1,3 +1,7 @@
+/**
+* Calculate the number of solutions to paint in a N-sections circle with M kinds of color,
+* different color between the adjacent sections.
+*/
 import java.lang.Integer;
 import java.util.Scanner;
 
@@ -37,6 +41,7 @@ public class Paint{
 		return pow(-1, N) * (M - 1) + pow(M - 1, N);
 	}
 
+	// 3) f(n) = (m - 2) * f(n - 1) + (m - 1) * f(n - 2)
 	public static int addR(int M, int N){
 		if(N < 0 || M < 0)
 			throw new IllegalArgumentException();
