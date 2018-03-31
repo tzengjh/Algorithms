@@ -71,7 +71,7 @@ public class SequentialSearchST<Key, Value>{
 
 	public static void main(String[] args) {
         SequentialSearchST<String, Integer> st = new SequentialSearchST<String, Integer>();
-        for (int i = 0; i < 10; i++) {  //!StdIn.isEmpty()
+        for (int i = 0; !StdIn.isEmpty(); i++) {  //!StdIn.isEmpty()  using control + z to end the input process.
             String key = StdIn.readString();
             st.put(key, i);
         }

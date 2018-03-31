@@ -130,7 +130,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value>{
 
 	public static void main(String[] args) { 
         BinarySearchST<String, Integer> st = new BinarySearchST<String, Integer>(15);
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; !StdIn.isEmpty(); i++) {
             String key = StdIn.readString();
             st.put(key, i);
         }
