@@ -1,3 +1,6 @@
+/**
+ * Large number multiplication
+ */
 import java.util.Scanner;
 
 public class BigMultiply{
@@ -22,7 +25,7 @@ public class BigMultiply{
 		for(int i = 0; i < mul.length - 1; i++){
 			if(mul[i] / 10 > 0){
 				mul[i + 1] += mul[i] / 10;
-				mul[i] = mul[i] % 10; 
+				mul[i] = mul[i] % 10;
 			}
 		}
 
@@ -39,12 +42,12 @@ public class BigMultiply{
 
 
 	public static void main(String[] args) {
-        System.out.println("-----输入两个大数------");
+        System.out.println("-----Input two big numbers------");
         Scanner scanner = new Scanner(System.in);
         String num1 = scanner.next();
         String num2 = scanner.next();
         String result = multiply(num1, num2);
-        System.out.println("相乘结果为："+result);
+        System.out.println("Product is: "+result);
         scanner.close();
 	}
 }
